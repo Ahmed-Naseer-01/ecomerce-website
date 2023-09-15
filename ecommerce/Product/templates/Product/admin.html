@@ -1,0 +1,37 @@
+{% extends "/home/ahmednaseer/Desktop/django-project/ecommerce/Product/templates/Product/base.html" %}
+
+{% block heading %}
+<h1> Welcome to Admin Page</h1>
+{% endblock heading %}
+
+<div>
+    {% block product %}
+   <button><a href="{% url 'product_list' %}">Product</a></button>
+    {% endblock product %}
+</div>
+<div>
+    {% block Category %}
+    <button><a href="{% url 'category_list' %}">Category</a></button>
+     {% endblock Category %}
+</div>
+<br><br>
+<div>
+    {% block color %}
+    <button><a href="{% url 'color_list' %}">Colors</a></button>
+     {% endblock color %}
+</div><br><br>
+<div>
+    {% block size %}
+    <button><a href="{% url 'size_list' %}">sizes</a></button>
+     {% endblock size %}
+</div><br><br>
+<div>
+    {% block Price %}
+    <button><a href="{% url 'price_list' %}">Prices</a></button>
+     {% endblock Price %}
+</div>
+<main>
+    {% comment %} <div class="container">
+        {% block content %}{% endblock %}
+    </div> {% endcomment %}
+{% comment %} {% block product %}{% endblock %} {% endcomment %}

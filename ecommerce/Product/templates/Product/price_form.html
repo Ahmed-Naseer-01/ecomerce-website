@@ -1,0 +1,40 @@
+{% extends "/home/ahmednaseer/Desktop/django-project/ecommerce/Product/templates/Product/base.html" %}
+
+{% comment %} {% block content %}
+  <h1>{% if form.instance %}Edit{% else %}Create{% endif %} Price</h1>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+  </form>
+  <a href="{% url 'price_list' %}">Back to Price List</a>
+{% endblock %} {% endcomment %}
+
+{% block content %}
+  <h2>Add Price</h2>
+  <form method="post">
+    {% csrf_token %}
+    
+    <!-- Product selection field -->
+    <div class="form-group">
+      <label for="{{ form.product.product_id_for_label }}">Select Product:</label>
+      {{ form.product }}
+    </div>
+    
+    <!-- Color selection field -->
+    <div class="form-group">
+      <label for="{{ form.color.id_for_label }}">Select Color:</label>
+      {{ form.color }}
+    </div>
+    
+    <!-- Price input field -->
+    <div class="form-group">
+      <label for="{{ form.price.id_for_label }}">Price:</label>
+      {{ form.price }}
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Save</button>
+  </form>
+  
+  <a href="{% url 'price_list' %}">Back to Price List</a>
+{% endblock %}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My E-Commerce Website{% endblock %}</title>
+    <!-- Include your CSS and JavaScript files here -->
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                {% comment %} <li><a href="/">Home</a></li> {% endcomment %}
+                {% comment %} <li><a href="{% url 'size_list' %}">Sizes</a></li>
+                <li><a href="{% url 'color_list' %}">Colors</a></li>
+                <li><a href="{% url 'price_list' %}">Prices</a></li> {% endcomment %}
+                <!-- Add more navigation links as needed -->
+            </ul>
+        </nav>
+    </header>
+    {% block heading%}{% endblock  %}
+    <div>
+        {% block product %}
+       {% comment %} <button><a href="{% url 'product_list' %}">Product</a></button> {% endcomment %}
+        {% endblock product %}
+    </div>
+    <div>
+        {% block Category %}
+        {% comment %} <button><a href="{% url 'category_list' %}">Category</a></button> {% endcomment %}
+         {% endblock Category %}
+    </div>
+    <div>
+        {% block color %}
+        {% comment %} <button><a href="{% url 'color_list' %}">Colors</a></button> {% endcomment %}
+         {% endblock color %}
+    </div>
+    <div>
+        {% block size %}
+        {% comment %} <button><a href="{% url 'size_list' %}">sizes</a></button> {% endcomment %}
+         {% endblock size %}
+    </div>
+    <div>
+        {% block Price %}
+        {% comment %} <button><a href="{% url 'price_list' %}">Prices</a></button> {% endcomment %}
+         {% endblock Price %}
+    </div>
+
+    <main>
+        <div class="container">
+            {% block content %}{% endblock %}
+        </div>
+        {% comment %} <div>
+            {% block Admin %}
+            <a href="{% url 'home' %}">Back TO home</a>
+            {% endblock Admin %}
+        </div> {% endcomment %}
+    </main>
+    
+    <footer>
+        <!-- Footer content goes here -->
+    </footer>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CRUD Operations</title>
+</head>
+<body>
+    <h1>Products</h1>
+    <button onclick="showForm('product_create_form')">Create</button>
+    <button onclick="showForm('product_read_form')">Read</button>
+    <button onclick="showForm('product_update_form')">Update</button>
+    <button onclick="showForm('product_delete_form')">Delete</button>
+
+    <div id="product_create_form" style="display: none;">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ product_create_form.as_p }}
+            <input type="submit" name="create_product" value="Create Product">
+        </form>
+    </div>
+
+    <!-- Similar buttons and forms for other classes (categories, colors, sizes, prices) -->
+
+    <script>
+        function showForm(formId) {
+            hideAllForms();
+            document.getElementById(formId).style.display = 'block';
+        }
+
+        function hideAllForms() {
+            var forms = document.querySelectorAll('[id$="_form"]');
+            forms.forEach(function(form) {
+                form.style.display = 'none';
+            });
+        }
+    </script>
+</body>
+</html>

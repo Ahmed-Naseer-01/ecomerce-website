@@ -1,0 +1,12 @@
+{% extends "/home/ahmednaseer/Desktop/django-project/ecommerce/Product/templates/Product/base.html" %}
+
+{% block content %}
+  <h1>Colors List</h1>
+  <ul>
+    {% for item in colors %}
+    <li><a href="{% url 'color_detail' item.pk %}">{{ item.name }}</a></li>
+    {% endfor %}
+  </ul>
+  <a href="{% url 'color_create' %}">Add Color</a>
+{% endblock %}
+

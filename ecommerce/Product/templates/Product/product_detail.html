@@ -1,0 +1,41 @@
+{% extends "/home/ahmednaseer/Desktop/django-project/ecommerce/Product/templates/Product/base.html" %}
+{% block  content %}
+    <h1>Product Detail page</h1>
+    <p><strong>Name:</strong> {{ product_details.name }}</p>
+    <p><strong>Brand:</strong> {{ product_details.brand }}</p>
+    <p><strong>Description:</strong> {{ product_details.description }}</p>
+    <p><strong>Original Price:</strong> ${{ product_details.original_price }}</p>
+    <p><strong>Discount Percentage:</strong> {{ product_details.discount_percentage }}%</p>
+    <p><strong>Category:</strong></p>
+    <ul>
+      {% for category in product_details.category.all %}
+        <li>{{ category.name }}</li>
+      {% endfor %}
+    </ul>
+    <p><strong>Colors:</strong></p>
+    <ul>
+      {% for color in product_details.color.all %}
+        <li>{{ color.name }}</li>
+      {% endfor %}
+    </ul>
+    
+    <p><strong>Sizes:</strong></p>
+    <ul>
+      {% for size in product_details.size.all %}
+        <li>{{ size.name }}</li>
+      {% endfor %}
+    </ul>
+    
+    <p><strong>Image: </strong></p>
+    <img src="{{product_details.images.url}}" alt="product image" width="100" height="100"><br><hr>
+    <div>
+      {% if perms.Product.delete_product %}
+    <a href=" {% url 'product_delete' product_details.product_id %} ">Delete Product</a> <br><br>
+    {% endif %}
+    <a href="{% url 'product_list' %}">Back to Product List</a> <br><br>
+    {% if perms.Product.change_product %}
+    <a href=" {% url 'product_update' product_details.product_id%} ">Update Product</a>
+    {% endif %}
+    </div>
+    
+    {% endblock  %}

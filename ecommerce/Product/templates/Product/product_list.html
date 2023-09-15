@@ -1,0 +1,14 @@
+{% extends "/home/ahmednaseer/Desktop/django-project/ecommerce/Product/templates/Product/base.html" %}
+
+{% block content %}
+    <h1 style="text-align:center">List of Products</h1>
+    <ul>
+        {% for product in products %}
+        <li><a href="{% url 'product_detail' product.pk %}">{{ product.name }}</a></li>
+        {% endfor %}
+    </ul>
+    {% if perms.Product.change_product %}
+    <a href="{% url 'product_create' %}">Create New product</a>
+    {% endif %}
+    <a href="{% url 'dashboard' %}">Back To Dashboard</a>
+{% endblock content %}

@@ -1,0 +1,9 @@
+{% extends "/home/ahmednaseer/Desktop/django-project/ecommerce/Product/templates/Product/base.html" %}
+
+{% block content %}
+  <h1>{% if size_details %}Size{% else %}Color{% endif %} Detail</h1>
+  <p><strong>Name:</strong> {{ size_details.name }}</p>
+  <a href="{% url 'size_list' %}">Back to {% if size_details %}Sizes{% else %}Colors{% endif %} List</a>
+  <a href="{% url 'size_update' size_details.pk %}">Edit</a>
+  <a href="{% url 'size_delete' size_details.pk %}">Delete</a>
+{% endblock %}

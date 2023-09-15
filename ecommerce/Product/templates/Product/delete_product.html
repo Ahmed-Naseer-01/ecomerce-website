@@ -1,0 +1,10 @@
+{% extends "/home/ahmednaseer/Desktop/django-project/ecommerce/Product/templates/Product/base.html" %}
+{% block content %}
+<h1>Delete product</h1>
+    <p>Are you sure you want to delete the product "{{ product.name }}"?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Yes, Delete</button>
+    </form>
+    <a href="{% url 'product_list' %}">Cancel</a>
+    {% endblock content %}

@@ -1,0 +1,11 @@
+{% extends "/home/ahmednaseer/Desktop/django-project/ecommerce/Product/templates/Product/base.html" %}
+
+{% block content %}
+  <h1>{% if form.instance %}Edit{% else %}Create{% endif %} {% if sizes %}Size{% else %}Color{% endif %}</h1>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p}}
+    <button type="submit">Save</button>
+  </form>
+  <a href="{% url 'color_list' %}">Back to Colors List</a>
+{% endblock %}

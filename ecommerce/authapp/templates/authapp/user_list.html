@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>user Detial</title>
+</head>
+<body>
+
+        {% if perms.authapp.add_customuser %}
+        <li> <a href=" {% url 'signup' %} ">Create New User</a> </li>
+        {% endif %}
+    {% comment %} {% for user in object_list %} {% endcomment %}
+    {% comment %} <p></p>{{user.username}}<br> {% endcomment %}
+    {% comment %} {{user.first_name}} <br>
+    {{user.last_name}} <br>
+    {{user.email}} <br>
+    {{user.phone_number}} <br> {% endcomment %}
+    {% comment %} {% endfor %} {% endcomment %}
+    <hr>
+    {% for user in users %}
+    <li> <a href="{% url 'user detail' user.pk %}">{{user.username}} </a></li>
+    {% endfor %}
+    <li><a href="{% url 'dashboard' %}">Back To Dashboard</a></li>
+</body>
+</html>
+{% comment %} <li><a href="{% url 'product_detail' product.pk %}">{{ product.name }}</a></li> {% endcomment %}

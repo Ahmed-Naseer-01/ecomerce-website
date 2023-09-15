@@ -1,0 +1,11 @@
+{% extends "/home/ahmednaseer/Desktop/django-project/ecommerce/Product/templates/Product/base.html" %}
+
+{% block content %}
+  <h1> Price Detail</h1>
+  <p><strong>Product:</strong> {{ price_details.product }}</p>
+  <p><strong>Color:</strong> {{ price_details.color }}</p>
+  <p><strong>Price:</strong> {{ price_details.price }}</p>
+  <a href="{% url 'price_list' %}">Back to price list </a> <br>
+  <a href="{% url 'update_price' price_details.pk %}">Edit</a><br>
+  <a href="{% url 'delete_price' price_details.pk %}">Delete</a><br>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends "/home/ahmednaseer/Desktop/django-project/ecommerce/Product/templates/Product/base.html" %}
+{% block  content %}
+    <h1>Category List</h1>
+    <ul>
+        {% for category in categories %}
+            <li><a href="{% url 'category_detail' category.pk %}">{{ category.name }}</a></li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'category_create' %}">Create New Category</a>
+    {% endblock  %}

@@ -1,0 +1,13 @@
+{% extends "/home/ahmednaseer/Desktop/django-project/ecommerce/Product/templates/Product/base.html" %}
+
+{% block content %}
+  <h1>Price List</h1>
+  <ul>
+    {% for item in Prices %}
+    <li><a href="{% url 'price_detail' item.pk %}"> ${{ item.price }}</a></li>
+    {% endfor %}
+  </ul>
+  <a href="{% url 'create_price' %}">Add Prices</a>
+{% endblock %}
+
+

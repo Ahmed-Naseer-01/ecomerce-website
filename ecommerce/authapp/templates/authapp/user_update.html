@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update User Information</title>
+</head>
+<body>
+    <h1>Update User Information</h1>
+    
+    <form method="post">
+        {% csrf_token %}
+        
+        {% for field in form %}
+        {{ field.label_tag }} {{ field }} {{ field.errors|striptags }} <br><br>
+        {% endfor %}
+        <input type="submit" value="Update">
+        
+    </form>
+    {% if perms.authapp.view_customuser %}
+    <a href="{% url 'users list' %}">Back to User List</a>
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+</head>
+<body>
+    <h1>Welcome to the Profile Page</h1><br><br><br>
+    
+    {% comment %} <p>Username: {{detail.username}} </p> {% endcomment %}
+    <h1>Account Details : </h1>
+    <p>Username: {{ user.username }}</p>
+    <p>First Name: {{ user.first_name }}</p>
+    <p>Last Name: {{ user.last_name }}</p>
+    <p>Email: {{ user.email }}</p>
+    <p>Phone: {{ user.phone_number }}</p>
+    {% comment %} {% if user.has_perm('authapp.add_user') %}{% endif %} {% endcomment %}
+
+        {% comment %} {% if perms.authapp.change_customuser %} {% endcomment %}
+        <a href=" {% url 'user update' user.pk %} ">Update User</a>
+         {% comment %} {% endif %} {% endcomment %} 
+        
+        
+         {% if perms.authapp.delete_customuser %} 
+            {% if user != request.user %}
+        <a href=" {% url 'user delete' user.pk %} ">delete User</a>
+            {% endif %}
+        {% endif %}
+   
+
+<a href="{% url 'logout' %}">Logout</a><br>
+<a href="{% url 'change password' %}">Change Password</a>
+    <a href=" {% url 'dashboard' %} ">Back to Dashboard</a>
+    <hr><hr><br>
+    
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}    
+        </ul>
+    {% endif %}
+</body>
+</html>
